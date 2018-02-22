@@ -1,0 +1,35 @@
+﻿<Page x:Name="PageServiceOverview"
+    x:Class="SumsarApplication.View.ServiceOverview"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SumsarApplication.ViewModel"
+    xmlns:viewModel="using:SumsarApplication.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <viewModel:ServiceOverviewViewModel/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <DataTemplate x:Key="ServiceDataTemplate">
+            <Grid>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock Text="{Binding Name}"/>
+                    <TextBlock Text="{Binding Description}"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="TextBlockName" HorizontalAlignment="Left" Margin="443,230,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxName" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="431,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Write Name"/>
+        <TextBlock x:Name="TextBlockDescription" HorizontalAlignment="Left" Margin="445,351,0,0" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxDescription" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="448,405,0,0" VerticalAlignment="Top" PlaceholderText="Write Description"/>
+        <AppBarButton x:Name="AppBarButtonCreateService" Command="{Binding Path=CreateServiceCommand}" HorizontalAlignment="Left" Icon="Add" Label="Create Service" Margin="523,493,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="ListBoxServices" ItemsSource="{Binding Path=ServiceCatalogSingleton.Services}" ItemTemplate="{StaticResource ServiceDataTemplate}" HorizontalAlignment="Left" Height="100" Margin="821,263,0,0" VerticalAlignment="Top" Width="100"/>
+
+    </Grid>
+</Page>
