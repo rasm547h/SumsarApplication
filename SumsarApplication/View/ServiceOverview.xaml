@@ -24,13 +24,9 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="TextBlockPageTitle" Text="Overview of Services" Margin="100, 100, 0, 0" FontSize="30"/>
-        <TextBlock x:Name="TextBlockName" HorizontalAlignment="Left" Margin="100,230,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxName" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Write Name"/>
-        <TextBlock x:Name="TextBlockDescription" HorizontalAlignment="Left" Margin="100,351,0,0" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxDescription" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,405,0,0" VerticalAlignment="Top" PlaceholderText="Write Description"/>
-        <AppBarButton x:Name="AppBarButtonCreateService" Command="{Binding Path=CreateServiceCommand}" HorizontalAlignment="Left" Icon="Add" Label="Create Service" Margin="100,700,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="ListBoxServices" ItemsSource="{Binding Path=ServiceCatalogSingleton.Services}" ItemTemplate="{StaticResource ServiceDataTemplate}" HorizontalAlignment="Left" Height="391" Margin="500,263,0,0" VerticalAlignment="Top" Width="1000"/>
+        <TextBlock x:Name="TextBlockPageTitle" Text="Overview of Services" Margin="84,62,1109,886" FontSize="30"/>
+        <AppBarButton x:Name="AppBarButtonCreateService" Command="{Binding Path=CreateServiceCommand}" HorizontalAlignment="Left" Icon="Add" Label="Create Service" Margin="972,766,0,0" VerticalAlignment="Top" Height="78" Width="79"/>
+        <ListView x:Name="ListBoxServices" ItemsSource="{Binding Path=ServiceCatalogSingleton.Services}" ItemTemplate="{StaticResource ServiceDataTemplate}" HorizontalAlignment="Left" Height="391" Margin="268,242,0,0" VerticalAlignment="Top" Width="1000"/>
 
     </Grid>
 </Page>

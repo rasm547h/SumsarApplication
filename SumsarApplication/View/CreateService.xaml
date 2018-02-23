@@ -9,6 +9,11 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="TextBlockPageTitle" Text="Create Service" FontSize="30"/>
-        
+        <TextBlock x:Name="TextBlockCustomerName" Text="Customer Name" Margin="100,100,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="TextBoxCustomerName" PlaceholderText="Write Customer Name" Margin="100,150,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlockName" HorizontalAlignment="Left" Margin="100,230,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxName" Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" PlaceholderText="Write Name"/>
+        <TextBlock x:Name="TextBlockDescription" HorizontalAlignment="Left" Margin="100,351,0,0" Text="Description" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxDescription" Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="100,405,0,0" VerticalAlignment="Top" PlaceholderText="Write Description"/>
     </Grid>
 </Page>
