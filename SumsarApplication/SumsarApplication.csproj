@@ -103,6 +103,9 @@
     <Compile Include="Model\ServiceObjective.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ServiceOverviewViewModel.cs" />
+    <Compile Include="View\CreateService.xaml.cs">
+      <DependentUpon>CreateService.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ServiceOverview.xaml.cs">
       <DependentUpon>ServiceOverview.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="View\CreateService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ServiceOverview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
