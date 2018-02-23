@@ -27,8 +27,8 @@ namespace SumsarApplication.Handler
         //methods
         public void CreateService()
         {
-            var newService = new Service(ServiceOverviewViewModel.Name, ServiceOverviewViewModel.Description);
-            ServiceOverviewViewModel.ServiceCatalogSingleton.Add(newService);
+            var newService = new Service(ServiceOverviewViewModel.Identity, ServiceOverviewViewModel.Description, ServiceOverviewViewModel.ObjectiveCatalog.ToList<ServiceObjective>());
+            ServiceOverviewViewModel.ServiceCatalogSingleton.Services.Add(newService);
         }
     }
 }

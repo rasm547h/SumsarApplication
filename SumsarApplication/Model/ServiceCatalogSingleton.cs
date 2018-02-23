@@ -28,15 +28,15 @@ namespace SumsarApplication.Model
         private ServiceCatalogSingleton()
         {
             Services = new ObservableCollection<Service>();
+            var objs = new List<ServiceObjective>() { new ServiceObjective("Push biceps", "Use 16 lbs"), new ServiceObjective("Stretch out", "Remember breathing") };
             if (Services.Count == 0)
             {
-                Services.Add(new Service("1", "Work out"));
-                Services.Add(new Service("2", "Call home"));
-                Services.Add(new Service("3", "Go to doctor"));
+                Services.Add(new Service(1, "Work out: Monday", objs));
+                Services.Add(new Service(2, "Work out: Tuesday", objs));
+                Services.Add(new Service(3, "Work out: Friday", objs));
             }
         }
-
-
+        
         public void Add(Service service)
         {
             Services.Add(service);

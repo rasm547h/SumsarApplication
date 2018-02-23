@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -14,9 +15,9 @@ namespace SumsarApplication.ViewModel
 {
     class ServiceOverviewViewModel : INotifyPropertyChanged
     {
-        private string _name;
+        private int _name;
 
-        public string Name
+        public int Identity
         {
             get { return _name; }
             set { _name = value; }
@@ -37,6 +38,16 @@ namespace SumsarApplication.ViewModel
             get { return _serviceCatalogSingleton; }
             set { _serviceCatalogSingleton = value; }
         }
+
+        private ObservableCollection<ServiceObjective> _objectiveCatalog;
+
+        public ObservableCollection<ServiceObjective> ObjectiveCatalog
+        {
+            get { return _objectiveCatalog; }
+            set { _objectiveCatalog = value; }
+        }
+
+
 
         private ServiceHandler _handler;
 
