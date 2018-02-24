@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using SumsarApplication.Helpers;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -24,7 +25,12 @@ namespace SumsarApplication.View
     {
         public ServiceOverview()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
+        }
+
+        private void AppBarButtonCreateService_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(CreateService), e);
         }
     }
 }

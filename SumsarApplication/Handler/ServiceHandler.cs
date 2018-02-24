@@ -18,17 +18,40 @@ namespace SumsarApplication.Handler
             set { _serviceOverviewViewModel = value; }
         }
 
+        private CreateServiceViewModel _createServiceViewModel;
+
+        public CreateServiceViewModel CreateServiceViewModel
+        {
+            get { return _createServiceViewModel; }
+            set { _createServiceViewModel = value; }
+        }
+
         //ctor & overrides
+
+        //refactor: maybe some inheritance so "abstract class" only has service logic and no application logic. Then derived class's constructor has same parameters and VM DI.
         public ServiceHandler(ServiceOverviewViewModel viewModel)
         {
             ServiceOverviewViewModel = viewModel;
         }
 
+        public ServiceHandler(CreateServiceViewModel viewModel)
+        {
+            CreateServiceViewModel = viewModel;
+        }
+
         //methods
         public void CreateService()
         {
-            var newService = new Service(ServiceOverviewViewModel.Identity, ServiceOverviewViewModel.Description, ServiceOverviewViewModel.ObjectiveCatalog.ToList<ServiceObjective>());
-            ServiceOverviewViewModel.ServiceCatalogSingleton.Services.Add(newService);
+            //refactor: let singleton add new service, delivered by factory = high cohesion by take creational logic out of handler with dependecy on VM and low coupling by outsource creation to pattern.
+            var newService = new Service(CreateServiceViewModel.Identity, CreateServiceViewModel.Description, CreateServiceViewModel.ObjectiveCatalog.ToList<ServiceObjective>());
+            var temp = ServiceCatalogSingleton.Instance;
+            temp.Services.Add(newService);
+        }
+
+        public void CreateServiceObjective()
+        {
+            var newServiceObjective = new ServiceObjective(CreateServiceViewModel.ObjectiveName, CreateServiceViewModel.ObjectiveDescription);
+            CreateServiceViewModel.ObjectiveCatalog.Add(newServiceObjective);
         }
     }
 }

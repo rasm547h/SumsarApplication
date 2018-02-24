@@ -26,5 +26,10 @@ namespace SumsarApplication.View
         {
             this.InitializeComponent();
         }
+
+        private void AppBarButtonGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(ServiceOverview), e);
+        }
     }
 }

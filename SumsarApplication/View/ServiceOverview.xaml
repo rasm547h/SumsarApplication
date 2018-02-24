@@ -24,9 +24,24 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="TextBlockPageTitle" Text="Overview of Services" Margin="84,62,1109,886" FontSize="30"/>
-        <AppBarButton x:Name="AppBarButtonCreateService" Command="{Binding Path=CreateServiceCommand}" HorizontalAlignment="Left" Icon="Add" Label="Create Service" Margin="972,766,0,0" VerticalAlignment="Top" Height="78" Width="79"/>
-        <ListView x:Name="ListBoxServices" ItemsSource="{Binding Path=ServiceCatalogSingleton.Services}" ItemTemplate="{StaticResource ServiceDataTemplate}" HorizontalAlignment="Left" Height="391" Margin="268,242,0,0" VerticalAlignment="Top" Width="1000"/>
+        <TextBlock x:Name="TextBlockPageTitle" 
+                   Text="Overview of Services" 
+                   Margin="84,62,1109,886" 
+                   FontSize="30"/>
+        <AppBarButton x:Name="AppBarButtonCreateService" 
+                      HorizontalAlignment="Left" 
+                      Icon="Add" Label="Create Service" 
+                      Margin="972,766,0,0" 
+                      VerticalAlignment="Top" 
+                      Height="78" Width="79" 
+                      Click="AppBarButtonCreateService_Click"/>
+        <ListView x:Name="ListBoxServices" 
+                  ItemsSource="{Binding Path=ServiceCatalogSingleton.Services, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                  ItemTemplate="{StaticResource ServiceDataTemplate}" 
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  HorizontalAlignment="Left"
+                  Margin="268,242,0,0" 
+                  VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

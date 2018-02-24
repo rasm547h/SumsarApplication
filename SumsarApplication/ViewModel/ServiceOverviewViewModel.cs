@@ -15,22 +15,7 @@ namespace SumsarApplication.ViewModel
 {
     class ServiceOverviewViewModel : INotifyPropertyChanged
     {
-        private int _name;
-
-        public int Identity
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-
-        private string _description;
-
-        public string Description
-        {
-            get { return _description; }
-            set { _description = value; }
-        }
-
+        
         private ServiceCatalogSingleton _serviceCatalogSingleton;
 
         public ServiceCatalogSingleton ServiceCatalogSingleton
@@ -39,32 +24,14 @@ namespace SumsarApplication.ViewModel
             set { _serviceCatalogSingleton = value; }
         }
 
-        private ObservableCollection<ServiceObjective> _objectiveCatalog;
-
-        public ObservableCollection<ServiceObjective> ObjectiveCatalog
-        {
-            get { return _objectiveCatalog; }
-            set { _objectiveCatalog = value; }
-        }
-
-
-
         private ServiceHandler _handler;
 
         public ServiceHandler Handler
         {
             get { return _handler; }
             set { _handler = value; }
-        }        
-
-        private ICommand _createServiceCommand;
-
-        public ICommand CreateServiceCommand
-        {
-            get { return _createServiceCommand ?? (_createServiceCommand = new RelayCommand(Handler.CreateService)); }
-            set { _createServiceCommand = value; }
         }
-
+        
         //ctor & overrides
         public ServiceOverviewViewModel()
         {
